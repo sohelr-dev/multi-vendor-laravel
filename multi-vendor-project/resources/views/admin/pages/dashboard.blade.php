@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Welcome')
+@section('title', 'Admin Dashboard')
 @section('content')
 <div class="container-fluid py-4">
   <h4 class="fw-bold mb-4"><i class="fa-solid fa-gauge"></i> Dashboard Overview</h4>

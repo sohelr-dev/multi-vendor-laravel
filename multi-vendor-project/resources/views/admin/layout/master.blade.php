@@ -5,12 +5,13 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Document</title>
+     <title>@yield('title')</title>
      <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
      <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
           integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+     @yield('styles')
 </head>
 
 <body>
@@ -40,7 +41,7 @@
 
                          {{-- Dashboard --}}
                          <li class="nav-item">
-                              <a href="#"
+                              <a href="{{ route('admin.dashboard') }}"
                                    class="nav-link text-light link-navbar {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                                    <i class="fa-solid fa-grip me-2 fa-lg"></i> Dashboard
                               </a>
@@ -57,8 +58,8 @@
                                         <li><a href="#"
                                                   class="nav-link text-white {{ request()->routeIs('users.index') ? 'active' : '' }}"><i
                                                        class="fas fa-user me-2"></i> All Users</a></li>
-                                        <li><a href="#"
-                                                  class="nav-link text-white {{ request()->routeIs('vendors.index') ? 'active' : '' }}"><i
+                                        <li><a href="{{ route('vendor.dashboard') }}"
+                                                  class="nav-link text-white {{ request()->routeIs('vendor.dashboard') ? 'active' : '' }}"><i
                                                        class="fas fa-store me-2"></i> Vendors</a></li>
                                         <li><a href="#"
                                                   class="nav-link text-white {{ request()->routeIs('vendors.pending') ? 'active' : '' }}"><i
@@ -328,7 +329,7 @@
 
 
 
-
+     @yield('scripts')
      <script>
           const toggleBtn = document.getElementById('theme-toggle');
           const themeIcon = document.getElementById('theme-icon');
